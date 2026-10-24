@@ -1,0 +1,225 @@
+<!doctype html>
+<html lang="fa" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#080b14">
+<title>NONONICK ID</title>
+<meta name="description" content="کارت هویت دیجیتال علیرضا — Nononick">
+<style>
+  :root{
+    --bg:#080b14; --card:#0a0e1a; --line:#1b2a4a; --tile:#12203c;
+    --text:#f2f5ff; --muted:#9aa7c7; --accent:#7ad3ff; --ok:#6ee7b7; --err:#ff8a8a;
+  }
+  @media (prefers-color-scheme: light){
+    :root{ --bg:#eef2fb; --card:#ffffff; --line:#d5def3; --tile:#e6efff;
+           --text:#0d1630; --muted:#5a6788; --accent:#0a7bc4; --ok:#0f9d6b; --err:#c0392b; }
+  }
+  *{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+  html,body{margin:0}
+  body{
+    min-height:100dvh; background:var(--bg); color:var(--text);
+    font-family:"Vazirmatn",system-ui,-apple-system,"Segoe UI",Tahoma,sans-serif;
+    display:flex; align-items:center; justify-content:center;
+    padding:max(16px,env(safe-area-inset-top)) 16px max(16px,env(safe-area-inset-bottom));
+  }
+  .card{
+    width:100%; max-width:420px; background:var(--card);
+    border:1px solid var(--line); border-radius:28px; padding:22px;
+    box-shadow:0 20px 60px rgba(0,0,0,.35);
+  }
+  .head{display:flex; align-items:center; gap:14px}
+  .logo{
+    width:64px; height:64px; border-radius:18px; background:var(--tile);
+    display:grid; place-items:center; flex:none;
+  }
+  .logo svg{width:34px;height:34px;stroke:var(--accent)}
+  .who{flex:1; min-width:0}
+  .who h1{margin:0; font-size:22px; letter-spacing:.5px; direction:ltr; text-align:right}
+  .who p{margin:4px 0 0; color:var(--muted); font-size:14px}
+  .shield{width:26px;height:26px;stroke:var(--ok);flex:none}
+  hr{border:0; border-top:1px solid var(--line); margin:18px 0}
+
+  .links{display:grid; gap:10px}
+  .link{
+    display:flex; align-items:center; justify-content:space-between; gap:10px;
+    padding:14px 16px; border-radius:16px; background:var(--tile);
+    color:var(--text); text-decoration:none; font-size:15px;
+  }
+  .link span.sub{direction:ltr; color:var(--muted); font-size:13px}
+  .link:active{transform:scale(.99)}
+
+  h2{font-size:17px; margin:0 0 6px}
+  .hint{color:var(--muted); font-size:14px; line-height:1.8; margin:0}
+
+  .verify{text-align:center; margin-top:6px}
+  .btn{
+    width:140px; height:140px; border-radius:50%; margin:18px auto 10px;
+    background:var(--tile); border:2px solid var(--accent); color:var(--accent);
+    display:grid; place-items:center; cursor:pointer; font:inherit;
+  }
+  .btn svg{width:58px;height:58px;stroke:var(--accent)}
+  .btn:disabled{opacity:.6; cursor:wait}
+  .vlabel{color:var(--accent); font-size:18px; font-weight:600}
+  .vsub{color:var(--muted); font-size:13px; margin-top:6px}
+  .status{min-height:22px; margin-top:12px; font-size:14px}
+  .status.ok{color:var(--ok)} .status.err{color:var(--err)}
+  .reset{background:none;border:0;color:var(--muted);font:inherit;font-size:12px;text-decoration:underline;margin-top:10px;cursor:pointer}
+
+  #private{display:none; margin-top:6px}
+  #private.show{display:block}
+  .row{display:flex; justify-content:space-between; gap:12px; padding:12px 0; border-bottom:1px dashed var(--line); font-size:15px}
+  .row:last-child{border-bottom:0}
+  .row b{color:var(--muted); font-weight:500}
+  .row span{direction:ltr; text-align:left; word-break:break-all}
+  .foot{margin-top:18px; color:var(--muted); font-size:12px; line-height:1.8; display:flex; gap:8px; align-items:flex-start}
+  .foot svg{width:16px;height:16px;stroke:var(--ok);flex:none;margin-top:3px}
+</style>
+</head>
+<body>
+<main class="card">
+
+  <div class="head">
+    <svg class="shield" viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3l7 3v5c0 5-3 8.5-7 10-4-1.500-7-5-7-10V6l7-3z"/><path d="M9 12l2 2 4-4"/></svg>
+    <div class="who">
+      <h1 id="name">NONONICK ID</h1>
+      <p id="tagline">Personal Digital Identity</p>
+    </div>
+    <div class="logo">
+      <svg viewBox="0 0 24 24" fill="none" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 11c0 3-1 5.500-2.500 7.500"/><path d="M8 8.500A5 5 0 0 1 17 11c0 2.500-.5 4.500-1.500 6.500"/><path d="M5 11a7 7 0 0 1 11-5.700"/><path d="M5 15c.4-1.300.6-2.600.6-4"/><path d="M19 12c0 2.200-.3 4-1 5.500"/><path d="M12 11v.01"/></svg>
+    </div>
+  </div>
+
+  <hr>
+
+  <nav class="links" id="links" aria-label="لینک‌ها"></nav>
+
+  <hr>
+
+  <section id="gate" class="verify">
+    <h2>تأیید هویت</h2>
+    <p class="hint">برای دیدن اطلاعات تماس، با گوشی‌ات تأیید کن (Face ID، اثر انگشت یا قفل دستگاه).</p>
+    <button class="btn" id="verifyBtn" aria-label="Verify with Passkey">
+      <svg viewBox="0 0 24 24" fill="none" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 11c0 3-1 5.500-2.500 7.500"/><path d="M8 8.500A5 5 0 0 1 17 11c0 2.500-.5 4.500-1.500 6.500"/><path d="M5 11a7 7 0 0 1 11-5.700"/><path d="M5 15c.4-1.300.6-2.600.6-4"/><path d="M19 12c0 2.200-.3 4-1 5.500"/></svg>
+    </button>
+    <div class="vlabel">Verify with Passkey</div>
+    <div class="vsub">Your biometric data stays on your device</div>
+    <div class="status" id="status" role="status" aria-live="polite"></div>
+    <button class="reset" id="resetBtn" hidden>حذف Passkey این دستگاه</button>
+  </section>
+
+  <section id="private" aria-label="اطلاعات تماس">
+    <h2>اطلاعات تماس</h2>
+    <div id="rows"></div>
+  </section>
+
+  <div class="foot">
+    <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="5" y="11" width="14" height="9" rx="2"/><path d="M8 11V8a4 4 0 0 1 8 0v3"/></svg>
+    <span>تأیید فقط روی همین دستگاه انجام می‌شود و اثر انگشت یا تصویر چهره به هیچ سروری ارسال نمی‌شود.</span>
+  </div>
+
+</main>
+
+<script>
+/* ============ فقط این بخش را ویرایش کن ============ */
+const CONFIG = {
+  name: "علیرضا",
+  title: "Founder of Nononick",
+  /* لینک‌های عمومی (همیشه دیده می‌شوند) */
+  links: [
+    { label: "وب‌سایت Nononick", sub: "nononick.ir", href: "https://nononick.ir" },
+    { label: "گیت‌هاب", sub: "alirezassezar1-svg", href: "https://github.com/alirezassezar1-svg" }
+    /* نمونه: { label: "اینستاگرام", sub: "@username", href: "https://instagram.com/username" } */
+  ],
+  /* اطلاعات خصوصی: بعد از تأیید Passkey نمایش داده می‌شوند. خالی = نمایش داده نمی‌شود */
+  private: [
+    { label: "تلفن",  value: "" },
+    { label: "ایمیل", value: "" },
+    { label: "آدرس",  value: "" }
+  ]
+};
+/* =================================================== */
+
+const $ = (id) => document.getElementById(id);
+const KEY = "nononick-id-passkey";
+
+$("name").textContent = CONFIG.name + " · NONONICK ID";
+$("tagline").textContent = CONFIG.title;
+
+CONFIG.links.forEach(l => {
+  const a = document.createElement("a");
+  a.className = "link"; a.href = l.href; a.target = "_blank"; a.rel = "noopener";
+  const t = document.createElement("span"); t.textContent = l.label;
+  const s = document.createElement("span"); s.className = "sub"; s.textContent = l.sub;
+  a.append(t, s); $("links").append(a);
+});
+
+const rows = CONFIG.private.filter(r => r.value);
+rows.forEach(r => {
+  const d = document.createElement("div"); d.className = "row";
+  const b = document.createElement("b"); b.textContent = r.label;
+  const v = document.createElement("span"); v.textContent = r.value;
+  d.append(b, v); $("rows").append(d);
+});
+
+const b64 = {
+  enc: (buf) => btoa(String.fromCharCode(...new Uint8Array(buf))),
+  dec: (str) => Uint8Array.from(atob(str), c => c.charCodeAt(0))
+};
+const rnd = (n) => crypto.getRandomValues(new Uint8Array(n));
+
+function say(msg, kind){ const s = $("status"); s.textContent = msg; s.className = "status " + (kind || ""); }
+function unlock(){
+  $("private").classList.add("show");
+  if(!rows.length){ $("rows").innerHTML = '<p class="hint">هنوز اطلاعاتی در CONFIG ثبت نشده.</p>'; }
+  say("هویت تأیید شد ✓", "ok");
+}
+function refreshReset(){ $("resetBtn").hidden = !localStorage.getItem(KEY); }
+refreshReset();
+
+async function register(){
+  const cred = await navigator.credentials.create({ publicKey: {
+    challenge: rnd(32),
+    rp: { name: "NONONICK ID", id: location.hostname },
+    user: { id: rnd(16), name: "nononick-owner", displayName: CONFIG.name },
+    pubKeyCredParams: [{ type: "public-key", alg: -7 }, { type: "public-key", alg: -257 }],
+    authenticatorSelection: { userVerification: "required", residentKey: "preferred" },
+    timeout: 60000
+  }});
+  localStorage.setItem(KEY, b64.enc(cred.rawId));
+}
+async function verify(){
+  await navigator.credentials.get({ publicKey: {
+    challenge: rnd(32),
+    allowCredentials: [{ type: "public-key", id: b64.dec(localStorage.getItem(KEY)) }],
+    userVerification: "required",
+    rpId: location.hostname,
+    timeout: 60000
+  }});
+}
+
+$("verifyBtn").addEventListener("click", async () => {
+  if(!window.PublicKeyCredential || !navigator.credentials){
+    say("مرورگر شما از Passkey پشتیبانی نمی‌کند.", "err"); return;
+  }
+  const btn = $("verifyBtn"); btn.disabled = true; say("");
+  try{
+    if(!localStorage.getItem(KEY)){
+      say("اولین بار: در حال ساخت Passkey…");
+      await register();
+    }
+    say("در حال تأیید با دستگاه…");
+    await verify();
+    unlock();
+  }catch(e){
+    say(e && e.name === "NotAllowedError" ? "تأیید لغو شد یا زمان آن تمام شد." : "خطا: " + (e && e.message || e), "err");
+  }finally{
+    btn.disabled = false; refreshReset();
+  }
+});
+$("resetBtn").addEventListener("click", () => {
+  localStorage.removeItem(KEY); $("private").classList.remove("show"); say("Passkey این دستگاه حذف شد."); refreshReset();
+});
+</script>
+</body>
+</html>
