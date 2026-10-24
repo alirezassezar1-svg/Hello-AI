@@ -49,6 +49,8 @@
   .link span.sub{direction:ltr; color:var(--muted); font-size:13px}
   .link:active{transform:scale(.99)}
 
+  .mapbox[hidden]{display:none}
+  .mapbox iframe{width:100%; height:220px; border:0; border-radius:18px; margin-bottom:10px; background:var(--tile)}
   h2{font-size:17px; margin:0 0 6px}
   .hint{color:var(--muted); font-size:14px; line-height:1.8; margin:0}
 
@@ -96,6 +98,12 @@
 
   <hr>
 
+  <section id="mapbox" class="mapbox" hidden>
+    <iframe id="mapframe" title="نقشه" loading="lazy" referrerpolicy="no-referrer-when-downgrade" allowfullscreen></iframe>
+    <a id="maplink" class="link" target="_blank" rel="noopener"><span></span><span class="sub">Google Maps</span></a>
+    <hr>
+  </section>
+
   <section id="gate" class="verify">
     <h2>تأیید هویت</h2>
     <p class="hint">برای دیدن اطلاعات تماس، با گوشی‌ات تأیید کن (Face ID، اثر انگشت یا قفل دستگاه).</p>
@@ -128,6 +136,7 @@ const CONFIG = {
   /* لینک‌های عمومی (همیشه دیده می‌شوند) */
   links: [
     { label: "وب‌سایت Nononick", sub: "nononick.ir", href: "https://nononick.ir" },
+    { label: "تلفن", sub: "+98 912 849 6948", href: "tel:+989128496948" },
     { label: "ایمیل کاری", sub: "hello@nononick.ir", href: "mailto:hello@nononick.ir" },
     { label: "ایمیل شخصی", sub: "alirezassezar.1@gmail.com", href: "mailto:alirezassezar.1@gmail.com" },
     { label: "گیت‌هاب", sub: "github.com/alirezassezar1-svg", href: "https://github.com/alirezassezar1-svg" },
@@ -136,9 +145,10 @@ const CONFIG = {
   ],
   /* اطلاعات خصوصی: بعد از تأیید Passkey نمایش داده می‌شوند. خالی = نمایش داده نمی‌شود */
   private: [
-    { label: "تلفن",  value: "" },
     { label: "آدرس",  value: "" }
-  ]
+  ],
+  /* نقشه‌ی گوگل (عمومی). query = نام مکان یا آدرس، مثلاً "Nononick, Tehran". خالی = نقشه نمایش داده نمی‌شود */
+  map: { query: "", label: "مسیریابی در Google Maps" }
 };
 /* =================================================== */
 
@@ -156,6 +166,15 @@ CONFIG.links.forEach(l => {
   const s = document.createElement("span"); s.className = "sub"; s.textContent = l.sub;
   a.append(t, s); $("links").append(a);
 });
+
+if(CONFIG.map && CONFIG.map.query){
+  const q = encodeURIComponent(CONFIG.map.query);
+  $("mapframe").src = "https://maps.google.com/maps?q=" + q + "&z=15&output=embed";
+  const ml = $("maplink");
+  ml.href = "https://www.google.com/maps/search/?api=1&query=" + q;
+  ml.firstElementChild.textContent = CONFIG.map.label;
+  $("mapbox").hidden = false;
+}
 
 const rows = CONFIG.private.filter(r => r.value);
 rows.forEach(r => {
